@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('id_proof');
             $table->string('password');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
     

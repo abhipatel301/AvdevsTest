@@ -28,5 +28,8 @@ Route::group(['prefix' => 'register','as'=>'register.'], function () {
     Route::post('/create','LoginController@create')->name('create');
 });
 
+Route::middleware('customerAuth')->group(function () {
+    Route::get('cusromer/dashboard','DashboardController@index')->name('dashboard');
 
-Route::get('user/dashboard','DashboardController@index')->name('dashboard');
+    Route::get('/logout','LoginController@logout')->name('logout');
+});

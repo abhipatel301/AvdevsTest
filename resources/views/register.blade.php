@@ -84,11 +84,7 @@
                   </div>
               </form>
 
-             
-            </div>
-          </div>
-
-          @if ($errors->any())
+               <!-- @if ($errors->any()) -->
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -96,6 +92,17 @@
                     @endforeach
                 </ul>
             </div>
-        @endif
+        <!-- @endif
+        @if(session('success')) -->
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        <!-- @endif -->
+
+             
+            </div>
+          </div>
+
+         
 
 @endsection

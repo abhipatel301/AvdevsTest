@@ -20,15 +20,7 @@
     <ul class="navbar-nav flex-row align-items-center ms-auto">
       <!-- Place this tag where you want the button to render. -->
       <li class="nav-item lh-1 me-3">
-        <?php $branches = App\Models\Branch\Branch::get(); ?>
        
-        <select class="form-select" name="branch" required id="changeBranchHeader">
-          <option value="123">All Branchs</option>
-          @foreach($branches as $branche)
-          <option value="{{$branche->id}}" @if(\Session::get('branch_id') == $branche->id) selected @endif >{{ucfirst($branche->name)}} Branch</option>
-          @endforeach
-
-        </select>
       </li>
 
       <!-- User -->
@@ -50,13 +42,10 @@
                   </div>
                 </div>
                 <div class="flex-grow-1">
-                  <span class="fw-semibold d-block">{{ucfirst(Session::get('branch.name'))}}</span>
+                 
                   <small class="text-muted">
-                    @if(Session::get('user.role') == 2)
-                    Employee
-                    @else
-                    Admin
-                    @endif
+                  
+                  {{Session::get('customer.name')}}
                   </small>
                 </div>
               </div>

@@ -23,9 +23,9 @@ class LoginController extends Controller
         return view('login');
     }
   
-    public function loginCheck(LoginRequest $request)
+    public function check(LoginRequest $request)
     {
-        dd($request->all());
+      
         if ($customer = Customer::where('email', $request->userName)
                       ->orWhere('name', $request->userName)->first()) {
             if (Hash::check($request->password, $customer->password)) {
@@ -61,7 +61,7 @@ class LoginController extends Controller
 
         ]);
 
-        dd("customer Created ");
+        return redirect()->route('login.index')->with('success', 'Customer Created Successfully');
 
     }
 
@@ -70,7 +70,7 @@ class LoginController extends Controller
     public function logout()
     {
         Session::flush();
-        return redirect()->route('login')->with('SuccessMessage', 'Logut Successfully');
+        return redirect()->route('login.index')->with('SuccessMessage', 'Logut Successfully');
     }
 
 
